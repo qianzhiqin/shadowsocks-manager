@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Shadowsocks-Manager">
+    <link rel="apple-touch-startup-image" href="https://ssmgr-3fbe2.firebaseapp.com/libs/favicon.png">
+    <link rel="apple-touch-icon" href="https://ssmgr-3fbe2.firebaseapp.com/libs/favicon.png">
+    <meta name="msapplication-TileImage" content="https://ssmgr-3fbe2.firebaseapp.com/libs/favicon.png">
+    <meta name="msapplication-TileColor" content="#3F51B5">
+    <meta name="theme-color" content="#3F51B5">
+    <link rel="stylesheet" href="/libs/style.css">
+    <link rel="stylesheet" href="https://ssmgr-3fbe2.firebaseapp.com/libs/angular-material.min.css">
+    <link rel="shortcut icon" href="https://ssmgr-3fbe2.firebaseapp.com/libs/favicon.png">
+    <link rel="manifest" href="/manifest.json">
+    <title>Shadowsocks-Manager</title>
+    <base href="/">
+</head>
+
+<body ng-app="app" ng-cloak>
+    <script src="https://ssmgr-3fbe2.firebaseapp.com/libs/angular.min.js"></script>
+    <script src="https://ssmgr-3fbe2.firebaseapp.com/libs/angular-inview.js"></script>
+    <script src="https://ssmgr-3fbe2.firebaseapp.com/libs/angular-animate.min.js"></script>
+    <script src="https://ssmgr-3fbe2.firebaseapp.com/libs/angular-aria.min.js"></script>
+    <script src="https://ssmgr-3fbe2.firebaseapp.com/libs/angular-messages.min.js"></script>
+    <script src="https://ssmgr-3fbe2.firebaseapp.com/libs/angular-material.min.js"></script>
+    <script src="https://ssmgr-3fbe2.firebaseapp.com/libs/angular-ui-router.min.js"></script>
+    <script src="https://ssmgr-3fbe2.firebaseapp.com/libs/qrcode.min.js"></script>
+    <script src="https://ssmgr-3fbe2.firebaseapp.com/libs/angular-qr.min.js"></script>
+    <script src="https://ssmgr-3fbe2.firebaseapp.com/libs/ngStorage.min.js"></script>
+    <script src="https://ssmgr-3fbe2.firebaseapp.com/libs/Chart.min.js"></script>
+    <script src="https://ssmgr-3fbe2.firebaseapp.com/libs/angular-chart.min.js"></script>
+    <script src="https://ssmgr-3fbe2.firebaseapp.com/libs/moment.min.js"></script>
+    <script src="https://ssmgr-3fbe2.firebaseapp.com/libs/angular-moment.min.js"></script>
+    <script src="https://ssmgr-3fbe2.firebaseapp.com/libs/angular-websocket.min.js"></script>
+
+    <script src="/libs/bundle.js"></script>
+    <script>window.ssmgrVersion = '<%= version%>'</script>
+    <div ng-controller="MainController" layout-fill>
+        <div layout-fill layout="row" layout-align="center center" ng-show="mainLoading">
+            <div layout="column" layout-align="center center">
+                <md-progress-circular md-mode="indeterminate" class="md-accent"></md-progress-circular>
+            </div>
+        </div>
+        <div ng-hide="mainLoading" ui-view layout-fill></div>
+    </div>
+</body>
+
+</html>
