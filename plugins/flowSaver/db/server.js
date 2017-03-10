@@ -11,14 +11,17 @@ const createTable = async () => {
   if(config.empty) {
     await knex.schema.dropTableIfExists(tableName);
   }
-  await knex.schema.createTableIfNotExists(tableName, function(table) {
-    table.increments('id');
-    table.string('name');
-    table.string('host');
-    table.integer('port');
-    table.string('password');
-    table.string('method').defaultTo('aes-256-cfb');
-  });
+  const exist = yield knex.schema.hasTable(tableName);
+  if (!exist) {
+    await knex.schema.createTableIfNotExists(tableName, function(table) {
+      table.increments('id');
+      table.string('name');
+      table.string('host');
+      table.integer('port');
+      table.string('password');
+      table.string('method').defaultTo('aes-256-cfb');
+    });
+  }
   const list = await knex('server').select(['name', 'host', 'port', 'password']);
   if(list.length === 0) {
     const host = config.manager.address.split(':')[0];
