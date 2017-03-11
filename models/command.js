@@ -8,7 +8,7 @@ const createTable = async() => {
   if(config.empty) {
     await knex.schema.dropTableIfExists(tableName);
   }
-  const exist = yield knex.schema.hasTable(tableName);
+  const exist = knex.schema.hasTable(tableName);
   if (exist) {
     return;
   }
